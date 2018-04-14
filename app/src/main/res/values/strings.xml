@@ -5,9 +5,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="action_add">Add</string>
-    <string name="action_delete">Delete</string>
-    <string name="action_email">Email</string>
-    <string name="action_sms">SMS</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="nav_add">Add a study buddy</string>
+    <string name="nav_delete">Delete a study buddy</string>
+    <string name="nav_email">Email a study buddy</string>
+    <string name="nav_settings">View Settings</string>
+    <string name="nav_sms">Text a study buddy</string>
+    <string name="title_activity_settings">Viewing Settings</string>
+    <string name="textView_slogan">Study Now To Have a Fun Life Later!</string>
 </resources>

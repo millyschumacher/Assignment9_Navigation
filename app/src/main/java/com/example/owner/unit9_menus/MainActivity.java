@@ -76,37 +76,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_add) {
-            Snackbar.make(getWindow().getDecorView(), "Add Study Mate not implemented.", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            return true;
-        }
-        if (id == R.id.action_delete) {
-            Snackbar.make(getWindow().getDecorView(), "Deleting a Study Mate not implemented.", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            return true;
-        }
         if (id == R.id.action_settings) {
             Intent settingsIntent = new Intent(this, SettingsActivity.class);
             startActivity(settingsIntent);
-            return true;
-        }
-        if (id == R.id.action_email) {
-            Intent emailIntent = new Intent(Intent.ACTION_SEND);
-            emailIntent.setType("*/*");
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT,  "Hey Study Buddy");
-            if(emailIntent.resolveActivity(getPackageManager())!=null){
-                startActivity(emailIntent);
-            }
-            return true;
-        }
-        if (id == R.id.action_sms) {
-            Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
-            smsIntent.setData(Uri.parse("smsto:"));
-            smsIntent.putExtra("sms_body", "Hey Study Buddy");
-            if (smsIntent.resolveActivity(getPackageManager()) != null) {
-                startActivity(smsIntent);
-            }
             return true;
         }
             return super.onOptionsItemSelected(item);
@@ -118,18 +90,41 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        //These else-if statements go through each of the menu options and display a message,
+        //as the functionality for all of of the menu options is not yet available.
+        if (id == R.id.nav_add) {
+            Snackbar.make(getWindow().getDecorView(), "Adding study mates is not currently available.",
+                    Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            return true;
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_delete) {
+            Snackbar.make(getWindow().getDecorView(), "Deleting study mates is not currently available.",
+                    Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            return true;
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_email) {
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+            //send this to my school email
+            emailIntent.setData(Uri.parse("mailto: aschumacher@css.edu"));
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Hey Study Buddy");
+            if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(emailIntent);
+            }
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_settings) {
+            Intent settingsIntent = ( new Intent(this, SettingsActivity.class));
+            startActivity(settingsIntent);
+            return true;
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_sms) {
+            Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
+            //my phone number
+            smsIntent.setData(Uri.parse("smsto: 6513574852"));
+            smsIntent.putExtra("sms_body", "Hello Study Buddy");
+            if (smsIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(smsIntent);
+            }
+            return true;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
